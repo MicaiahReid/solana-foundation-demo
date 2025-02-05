@@ -3,8 +3,8 @@ addon "svm" {
   rpc_api_url = "https://api.devnet.solana.com"
 }
 
-signer "payer" "svm::web_wallet" {
-	expected_address = "zbBjhHwuqyKMmz8ber5oUtJJ3ZV4B6ePmANfGyKzVGV"
+signer "payer" "svm::secret_key" {
+	keypair_json = "~/.config/solana/id.json"
 }
 
 signer "squad" "svm::squads" {
