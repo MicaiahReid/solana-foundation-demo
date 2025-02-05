@@ -1,0 +1,33 @@
+addon "svm" {
+  network_id = "devnet"
+  rpc_api_url = "https://api.devnet.solana.com"
+}
+
+signer "payer" "svm::web_wallet" {
+	expected_address = "zbBjhHwuqyKMmz8ber5oUtJJ3ZV4B6ePmANfGyKzVGV"
+}
+
+signer "squad" "svm::squads" {
+  address = "4xAJhZCxoZKKXNN5Rh3uTzV4r8QkHp4ToHCvw4whrnJZ"
+}
+
+variable "program" {
+  description = "Hello world program"
+  value = svm::get_program_from_anchor_project("hello_world") 
+}
+
+action "deploy" "svm::deploy_program" {
+  description = "Deploy the hello_world program"
+  program = variable.program
+  payer = signer.payer
+  authority = signer.squad
+}
+
+output "deploy_signatures" {
+  description = "Signatures of the program deployment transactions"
+  value = action.deploy.signatures
+}
+output "deploy_program_id" {
+  description = "The deployed program ID"
+  value = action.deploy.program_id
+}
