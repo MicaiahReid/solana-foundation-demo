@@ -1,0 +1,4 @@
+
+signer "deployer" "svm::secret_key" {
+    keypair_json = input.authority_keypair_json
+}

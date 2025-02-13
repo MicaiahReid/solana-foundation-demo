@@ -5,6 +5,8 @@ resolution = true
 skip-lint = false
 
 [programs.localnet]
+goodbye_cruel_world = "66cXyUmo2dFRzGN7hXQU9VBqMMtPyLWnHQ1rMR1cve7p"
+hello_again_world = "5bGFELeNyFmaxpdDHreMkpvUatakT7rMML3BmJCgDLVb"
 hello_world = "34PPF3JfHDAUbpcfzLgFe8ZcDiWKZ16wQ34rQdWXKQ2F"
 
 [registry]

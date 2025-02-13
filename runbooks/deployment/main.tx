@@ -1,0 +1,29 @@
+################################################################
+# solana-foundation-demo deployment
+################################################################
+
+addon "svm" {
+    rpc_api_url = input.rpc_api_url
+}
+
+// action "deploy_goodbye_cruel_world" "svm::deploy_program" {
+//     description = "Deploy goodbye_cruel_world program"
+//     program = svm::get_program_from_anchor_project("goodbye_cruel_world") 
+//     authority = signer.deployer
+//     payer = signer.deployer
+// }
+
+action "deploy_hello_again_world" "svm::deploy_program" {
+    description = "Deploy hello_again_world program"
+    program = svm::get_program_from_anchor_project("hello_again_world") 
+    authority = signer.deployer
+    payer = signer.deployer
+}
+
+// action "deploy_hello_world" "svm::deploy_program" {
+//     description = "Deploy hello_world program"
+//     program = svm::get_program_from_anchor_project("hello_world") 
+//     authority = signer.deployer
+//     payer = signer.deployer
+//     depends_on = [action.deploy_hello_again_world]
+// }
