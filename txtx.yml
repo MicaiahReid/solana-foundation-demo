@@ -14,6 +14,9 @@ runbooks:
     id: subgraph
     description: Deploy subgraph
     location: runbooks/subgraph.tx
+  - name: call
+    id: call
+    location: runbooks/call.tx
 environments:
   localnet:
       network_id: localnet
