@@ -877,28 +877,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "hello_again_world"
-version = "0.1.0"
-dependencies = [
- "anchor-lang",
- "autocfg",
- "hashbrown 0.14.5",
- "once_cell",
- "unicode-ident",
-]
-
-[[package]]
-name = "hello_world"
-version = "0.1.0"
-dependencies = [
- "anchor-lang",
- "autocfg",
- "hashbrown 0.14.5",
- "once_cell",
- "unicode-ident",
-]
-
-[[package]]
 name = "hmac"
 version = "0.8.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"

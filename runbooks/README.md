@@ -4,8 +4,6 @@
 
 ## Runbooks available
 
-### squads
-Deploy program to squad
 ### deployment
 Deploy programs
 

@@ -6,23 +6,27 @@ addon "svm" {
     rpc_api_url = input.rpc_api_url
 }
 
+variable "program" {
+    description = "The Goodbye Cruel World program"
+    value = svm::get_program_from_anchor_project("goodbye_cruel_world") 
+}
 action "deploy_goodbye_cruel_world" "svm::deploy_program" {
     description = "Deploy goodbye_cruel_world program"
-    program = svm::get_program_from_anchor_project("goodbye_cruel_world") 
+    program = variable.program
     authority = signer.deployer
     payer = signer.deployer
 }
 
-// action "deploy_hello_again_world" "svm::deploy_program" {
-//     description = "Deploy hello_again_world program"
-//     program = svm::get_program_from_anchor_project("hello_again_world") 
-//     authority = signer.deployer
-//     payer = signer.deployer
-// }
-
-// action "deploy_hello_world" "svm::deploy_program" {
-//     description = "Deploy hello_world program"
-//     program = svm::get_program_from_anchor_project("hello_world") 
-//     authority = signer.deployer
-//     payer = signer.deployer
-// }
+action "transfer_event" "svm::deploy_subgraph" {
+    description = "Deploy a subgraph of TransferEvent calls"
+    block_height = 0
+    program_id = action.deploy_goodbye_cruel_world.program_id
+    source = svm::get_idl_event(variable.program.idl, "TransferEvent")
+    field {
+        name = "amount"
+    }
+    field {
+        name = "recipient"
+        source = "to_pubkey"
+    }
+}
