@@ -3,19 +3,15 @@ name: solana-foundation-demo
 id: solana-foundation-demo
 runbooks:
   - name: squads
-    id: squads
     description: Deploy program to squad
     location: runbooks/squads.tx
   - name: deployment
-    id: deployment
     description: Deploy programs
     location: runbooks/deployment
   - name: subgraph
-    id: subgraph
     description: Deploy subgraph
     location: runbooks/subgraph.tx
   - name: call
-    id: call
     location: runbooks/call.tx
 environments:
   localnet:
