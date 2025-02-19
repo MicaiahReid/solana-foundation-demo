@@ -4,7 +4,7 @@ use borsh::BorshDeserialize;
 declare_id!("66cXyUmo2dFRzGN7hXQU9VBqMMtPyLWnHQ1rMR1cve7p");
 
 #[program]
-pub mod hello_world {
+pub mod goodbye_cruel_world {
 
     use anchor_lang::prelude::*;
     use anchor_lang::system_program::{transfer, Transfer};
@@ -34,7 +34,7 @@ pub mod hello_world {
         });
 
         let string_val = format!(
-            "Hello there, {}! (Sent from {})",
+            "Goodbye, {}. (Sent from {})",
             string_val,
             ctx.program_id.to_string()
         );
@@ -42,8 +42,9 @@ pub mod hello_world {
             message: string_val.clone()
         });
         emit_cpi!(MessageEvent {
-            message: string_val
+            message: string_val.clone()
         });
+        msg!("{}", string_val);
         Ok(())
     }
 }

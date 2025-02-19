@@ -4,7 +4,7 @@ use borsh::BorshDeserialize;
 declare_id!("5bGFELeNyFmaxpdDHreMkpvUatakT7rMML3BmJCgDLVb");
 
 #[program]
-pub mod hello_world {
+pub mod hello_again_world {
 
     use super::*;
     pub fn hello(ctx: Context<Initialize>, string_val: String) -> Result<()> {

@@ -7,7 +7,7 @@ skip-lint = false
 [programs.localnet]
 goodbye_cruel_world = "66cXyUmo2dFRzGN7hXQU9VBqMMtPyLWnHQ1rMR1cve7p"
 hello_again_world = "5bGFELeNyFmaxpdDHreMkpvUatakT7rMML3BmJCgDLVb"
-hello_world = "34PPF3JfHDAUbpcfzLgFe8ZcDiWKZ16wQ34rQdWXKQ2F"
+hello_world = "DNPFtc5GRME1BNVV1caSgnxK28GvKduRG31BrpwAgA3u"
 
 [registry]
 url = "https://api.apr.dev"
