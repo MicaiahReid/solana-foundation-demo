@@ -108,3 +108,17 @@ output "signature" {
   description: Call the program
   location: runbooks/call.tx
 ```
+
+```hcl
+
+action "message_event" "svm::deploy_subgraph" {
+    description = "Deploy a subgraph of MessageEvent calls"
+    block_height = 0
+    program_id = action.deploy_goodbye_cruel_world.program_id
+    source = svm::get_idl_event(variable.program.idl, "MessageEvent")
+    field {
+        name = "message"
+    }
+}
+
+```
