@@ -1,3 +1,51 @@
+### Solana Test Validator
+
+```sh
+solana-test-validator
+```
+
+Fetch some account:
+
+```sh
+solana account SQDS4ep65T869zMMBKyuUq6aD6EgTu8psMjkvj52pCf
+```
+
+### Surfpool Mainnet Forking
+
+Start surfpool in non-anchor dir
+
+```sh
+surfpool start
+```
+
+```sh
+solana account SQDS4ep65T869zMMBKyuUq6aD6EgTu8psMjkvj52pCf
+```
+
+### Surfpool with anchor project
+
+Go to project terminal:
+
+```sh
+surfpool start --watch
+```
+
+- Create runbook
+- show deployment
+- recompile to show auto-redeploy
+
+### Update devnet signer
+
+```hcl
+signer "payer" "svm::web_wallet" {
+	expected_address = "zbBjhHwuqyKMmz8ber5oUtJJ3ZV4B6ePmANfGyKzVGV"
+}
+
+signer "authority" "svm::squads" {
+  address = "4xAJhZCxoZKKXNN5Rh3uTzV4r8QkHp4ToHCvw4whrnJZ"
+}
+```
+
 Runbook with subgraph:
 
 ```hcl
