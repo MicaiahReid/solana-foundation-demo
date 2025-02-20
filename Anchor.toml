@@ -5,7 +5,7 @@ resolution = true
 skip-lint = false
 
 [programs.localnet]
-goodbye_cruel_world = "66cXyUmo2dFRzGN7hXQU9VBqMMtPyLWnHQ1rMR1cve7p"
+goodbye_cruel_world = "784RuaFufDQCrsTgMgtVFEciombEWXjyaeaJa64EevR"
 
 [registry]
 url = "https://api.apr.dev"
@@ -16,4 +16,3 @@ wallet = "~/.config/solana/id.json"
 
 [scripts]
 test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
- 

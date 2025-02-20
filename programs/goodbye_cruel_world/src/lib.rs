@@ -1,7 +1,7 @@
 use anchor_lang::prelude::*;
 use borsh::BorshDeserialize;
 
-declare_id!("66cXyUmo2dFRzGN7hXQU9VBqMMtPyLWnHQ1rMR1cve7p");
+declare_id!("784RuaFufDQCrsTgMgtVFEciombEWXjyaeaJa64EevR");
 
 #[program]
 pub mod goodbye_cruel_world {
