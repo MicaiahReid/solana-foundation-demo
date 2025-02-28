@@ -23,28 +23,15 @@ pub mod goodbye_cruel_world {
             },
         );
         transfer(cpi_context, amount)?;
-        emit!(TransferEvent {
-            amount,
-            to_pubkey: to_pubkey.key()
-        });
 
-        emit_cpi!(TransferEvent {
-            amount,
-            to_pubkey: to_pubkey.key()
-        });
-
-        let string_val = format!(
-            "Goodbye, {}. (Sent from {})",
-            string_val,
-            ctx.program_id.to_string()
+        msg!(
+            "{}",
+            format!(
+                "Goodbye, {}. (Sent from {})",
+                string_val,
+                ctx.program_id.to_string()
+            )
         );
-        emit!(MessageEvent {
-            message: string_val.clone()
-        });
-        emit_cpi!(MessageEvent {
-            message: string_val.clone()
-        });
-        msg!("{}", string_val);
         Ok(())
     }
 }
@@ -66,9 +53,4 @@ pub struct SolTransfer<'info> {
 pub struct TransferEvent {
     pub amount: u64,
     pub to_pubkey: Pubkey,
-}
-
-#[event]
-pub struct MessageEvent {
-    pub message: String,
 }
