@@ -23,6 +23,10 @@ pub mod goodbye_cruel_world {
             },
         );
         transfer(cpi_context, amount)?;
+        emit_cpi!(TransferEvent {
+            amount,
+            to_pubkey: *to_pubkey.key
+        });
 
         msg!(
             "{}",
@@ -54,3 +58,26 @@ pub struct TransferEvent {
     pub amount: u64,
     pub to_pubkey: Pubkey,
 }
+
+// #[event]
+// pub struct TransferEvent {
+//     pub transfer_details: TransferDetails,
+//     pub message: MessageDetails,
+// }
+
+// #[derive(AnchorSerialize, AnchorDeserialize, Eq, PartialEq, Clone, Debug)]
+// pub struct TransferDetails {
+//     pub amount: u64,
+//     pub to_pubkey: Pubkey,
+// }
+// #[derive(AnchorSerialize, AnchorDeserialize, Eq, PartialEq, Clone, Debug)]
+// pub enum MessageDetails {
+//     Success(String),
+//     Error(ErrorMessage),
+// }
+
+// #[derive(AnchorSerialize, AnchorDeserialize, Eq, PartialEq, Clone, Debug)]
+// pub struct ErrorMessage {
+//     pub message: String,
+//     pub code: u32,
+// }

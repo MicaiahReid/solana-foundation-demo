@@ -17,7 +17,7 @@ variable "data" {
     value = svm::get_instruction_data_from_idl(
 		variable.program.idl,
 		"hello",
-		["mtndao", 100]
+		["mtndao", 1000]
 	)
 }
 
