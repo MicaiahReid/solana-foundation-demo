@@ -1,5 +1,5 @@
 [package]
-name = "goodbye_cruel_world"
+name = "hello_world"
 version = "0.1.0"
 description = "Created with Anchor"
 edition = "2021"
@@ -7,7 +7,7 @@ authors = [""]
 
 [lib]
 crate-type = ["cdylib", "lib"]
-name = "goodbye_cruel_world"
+name = "hello_world"
 
 [features]
 default = []

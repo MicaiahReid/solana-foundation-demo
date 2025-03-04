@@ -9,7 +9,7 @@ signer "caller" "svm::secret_key" {
 
 variable "program" {
     description = "The program to deploy"
-    value = svm::get_program_from_anchor_project("goodbye_cruel_world")
+    value = svm::get_program_from_anchor_project("hello_world")
 }
 
 variable "data" {
@@ -17,7 +17,7 @@ variable "data" {
     value = svm::get_instruction_data_from_idl(
 		variable.program.idl,
 		"hello",
-		["mtndao", 1000]
+		["mtndao", 1000000]
 	)
 }
 

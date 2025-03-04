@@ -8,19 +8,19 @@ addon "svm" {
 }
 
 variable "program" {
-    value = svm::get_program_from_anchor_project("goodbye_cruel_world") 
+    value = svm::get_program_from_anchor_project("hello_world") 
 }
 
-action "deploy_goodbye_cruel_world" "svm::deploy_program" {
-    description = "Deploy goodbye_cruel_world program"
+action "deploy_hello_world" "svm::deploy_program" {
+    description = "Deploy hello_world program"
     program = variable.program
     authority = signer.authority
     payer = signer.payer
 }
 
-action "transfer_event_subgraph" "svm::deploy_subgraph" {
+action "transfer_event" "svm::deploy_subgraph" {
     description = "A Subgraph of the TransferEvent"
-    program_id = action.deploy_goodbye_cruel_world.program_id
+    program_id = action.deploy_hello_world.program_id
     program_idl = variable.program.idl
     block_height = 0
     event {

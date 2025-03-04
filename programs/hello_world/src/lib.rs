@@ -4,7 +4,7 @@ use borsh::BorshDeserialize;
 declare_id!("784RuaFufDQCrsTgMgtVFEciombEWXjyaeaJa64EevR");
 
 #[program]
-pub mod goodbye_cruel_world {
+pub mod hello_world {
 
     use anchor_lang::prelude::*;
     use anchor_lang::system_program::{transfer, Transfer};
