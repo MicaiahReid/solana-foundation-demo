@@ -27,11 +27,18 @@ pub mod hello_world {
             amount,
             to_pubkey: *to_pubkey.key
         });
+        emit_cpi!(MessageEvent {
+            message: format!(
+                "Hello, {} (Sent from {})",
+                string_val,
+                ctx.program_id.to_string()
+            )
+        });
 
         msg!(
             "{}",
             format!(
-                "Goodbye, {}. (Sent from {})",
+                "Goodbye, {} (Sent from {})",
                 string_val,
                 ctx.program_id.to_string()
             )
@@ -54,9 +61,20 @@ pub struct SolTransfer<'info> {
 }
 
 #[event]
+/// The transfer event.
 pub struct TransferEvent {
+    /// The amount transferred.
+    /// Another line of comments
     pub amount: u64,
+    /// The pubkey the amount was transferred to.
     pub to_pubkey: Pubkey,
+}
+
+#[event]
+/// The message event.
+pub struct MessageEvent {
+    /// The message emitted during the transfer.
+    pub message: String,
 }
 
 // #[event]
