@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 use anchor_lang::prelude::*;
 use borsh::BorshDeserialize;
 
@@ -14,6 +16,17 @@ pub mod hello_world {
         let from_pubkey = ctx.accounts.sender.to_account_info();
         let to_pubkey = ctx.accounts.recipient.to_account_info();
         let program_id = ctx.accounts.system_program.to_account_info();
+
+        *ctx.accounts.custom = CustomAccount {
+            my_custom_data: 0,
+            some_string: string_val.clone(),
+            inner: InnerStruct {
+                some_data: 0,
+                some_other_data: string_val.clone(),
+                index_map: HashMap::from([(string_val.clone(), 0)]),
+            },
+            a_pubkey: Pubkey::new_unique(),
+        };
 
         let cpi_context = CpiContext::new(
             program_id,
@@ -58,6 +71,29 @@ pub struct SolTransfer<'info> {
     #[account(mut)]
     recipient: SystemAccount<'info>,
     system_program: Program<'info, System>,
+    #[account(
+        init_if_needed,
+        payer = sender,
+        seeds = [b"custom", sender.key().as_ref()],
+        bump,
+        space = 8 + 100,
+    )]
+    pub custom: Account<'info, CustomAccount>,
+}
+
+#[account]
+pub struct CustomAccount {
+    pub my_custom_data: u64,
+    pub some_string: String,
+    pub inner: InnerStruct,
+    pub a_pubkey: Pubkey,
+}
+
+#[derive(AnchorSerialize, AnchorDeserialize, Clone)]
+pub struct InnerStruct {
+    pub some_data: u64,
+    pub some_other_data: String,
+    pub index_map: HashMap<String, u64>,
 }
 
 #[event]
